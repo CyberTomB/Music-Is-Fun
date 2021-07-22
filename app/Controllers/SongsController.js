@@ -19,13 +19,16 @@ function _drawPlaylist() {
   })
   document.getElementById('playlist').innerHTML = template
 }
-
+function _drawActiveSong() {
+  document.getElementById('active-song').innerHTML = ProxyState.activeSong.activeTemplate
+}
 //Public
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your listeners and get your data
     ProxyState.on('songs', _drawResults)
     ProxyState.on('playlist', _drawPlaylist)
+    ProxyState.on('activeSong', _drawActiveSong)
     this.getMySongs()
   }
 
@@ -33,11 +36,14 @@ export default class SongsController {
   search(e) {
     //NOTE You dont need to change this method
     e.preventDefault();
+    let form = e.target
     try {
       songService.getMusicByQuery(e.target.query.value);
     } catch (error) {
       console.error(error);
     }
+    form.reset()
+
   }
 
   async getMySongs() {
