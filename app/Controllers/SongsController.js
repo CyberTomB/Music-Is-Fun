@@ -61,6 +61,10 @@ export default class SongsController {
     }
   }
 
+  chooseSong(id, list) {
+    songService.chooseSong(id, list)
+  }
+
   /**
    * Takes in a song id to be removed from the users playlist and sends it to the server
    * @param {string} id

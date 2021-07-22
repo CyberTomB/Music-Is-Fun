@@ -49,6 +49,12 @@ class SongsService {
     ProxyState.playlist = [...ProxyState.playlist, new Song(res.data)]
   }
 
+  chooseSong(id, list) {
+    let chosenSong = ProxyState[list].find(s => s.id == id)
+    console.log('chosen song:', chosenSong)
+    ProxyState.activeSong = chosenSong
+  }
+
   /**
    * Sends a delete request to the sandbox to remove a song from the playlist
    * Afterwords it will update the store to reflect saved info

@@ -40,7 +40,7 @@ export default class Song {
   }
 
   get playlistTemplate() {
-    return `<div class="card mb-3" style="max-width: 540px;">
+    return `<div class="card mb-3" style="max-width: 540px;" onclick="app.songsController.chooseSong('${this.id}', 'playlist')">
   <div class="row no-gutters">
     <div class="col-md-4">
       <img src="${this.albumArt}" alt="${this.album}" class="w-100">
@@ -55,6 +55,4 @@ export default class Song {
   </div>
 </div>`;
   }
-
-  get
 }
