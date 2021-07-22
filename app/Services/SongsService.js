@@ -9,7 +9,7 @@ class SongsService {
    */
   getMusicByQuery(query) {
     //NOTE You will not need to change this method
-    let url = "https://itunes.apple.com/search?callback=?&term=" + query;
+    let url = "https://itunes.apple.com/search?callback=?&term=" + query + "&media=music";
     // @ts-ignore
     $.getJSON(url)
       .then(res => {
