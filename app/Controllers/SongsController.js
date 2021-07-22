@@ -6,7 +6,7 @@ import songService from "../Services/SongsService.js";
 function _drawResults() {
   let template = ''
   ProxyState.songs.forEach(s => {
-    template += s.Template
+    template += s.playlistTemplate
   })
   document.getElementById('songs').innerHTML = template
 }
